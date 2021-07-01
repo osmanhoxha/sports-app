@@ -1,5 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import LeagueInfo from "../views/LeagueInfo.vue";
+import Table from "../views/Table.vue";
+import Error404 from "../views/Error404.vue";
 
 const routes = [
   {
@@ -15,6 +18,21 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/league/:id",
+    name: "League Info",
+    component: LeagueInfo,
+  },
+  {
+    path: "/table/:id",
+    name: "League Table",
+    component: Table,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "Error404",
+    component: Error404,
   },
 ];
 
